@@ -37,7 +37,7 @@ function getPlayerChoice()
 
     if (playerChoice != "Rock" && playerChoice != "Paper" && playerChoice != "Scissors")
     {
-        alert("Invalid Choice.  Choose Again!");
+        alert("Invalid Choice.  Choose Again!  Rock, Paper, or Scissors?: ");
         getPlayerChoice();
     }
 
