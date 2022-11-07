@@ -2,7 +2,9 @@
 //get user choice
 //create program that determines winner
 //print winner and loser messages including what beats what
-getPlayerChoice();
+
+let roundCount = 1;
+let winner = "none";
 
 function getComputerChoice()
 {
@@ -28,25 +30,24 @@ function getPlayerChoice()
     }
 }
 
-function determineWinner()
+function determineWinner(computerSelection, playerSelection)
 {
     //todo
+
 }
 
 function printWinner()
 {
-    //todo
+    alert("Round " + roundCount + "'s Winner is " + winner + "!");
 }
 
 function playRound()
 {
-    getComputerChoice();
-    getPlayerChoice();
-    determineWinner();
-    printWinner();
+    let computerSelection = getComputerChoice();
+    let playerSelection = getPlayerChoice();
+    determineWinner(computerSelection, playerSelection);
+    printWinner(winner, roundCount);
 }
-
-let winner = "none";
 
 function game()
 {
@@ -57,7 +58,7 @@ function game()
     {
         playRound();
 
-        if (winner == computer)
+        if (winner == "Computer")
         {
             computerWins++;
         }
@@ -66,9 +67,11 @@ function game()
         {
             playerWins++;
         }
+
+        roundCount++;
     }
 
-    let winStatement = "GAME OVER!!\n" + winner + " wins, best of 5!"
+    let winStatement = "GAME OVER!!\n" + winner + " wins, best of 5!";
 
-    console.log(winStatement)
+    alert(winStatement);
 }
