@@ -12,7 +12,6 @@ game();
 
 function getComputerChoice()
 {
-    //todo
     let choice = Math.floor(Math.random() * 3);
     if (choice === 0)
     {
@@ -47,7 +46,7 @@ function getPlayerChoice()
     else
     {
         console.log("Player Choice: " + playerChoice);
-        return playerChoice;
+        playerSelection = playerChoice;
     }
 }
 
@@ -105,7 +104,7 @@ function printWinner()
 {
     if (winner == "none")
     {
-        alert("Both Players Chose " + computerSelection + ".  It's a tie!");
+        alert("Both Players Chose " + computerSelection + ".  The Round Starts Over!");
     }
 
     else
@@ -136,9 +135,14 @@ function game()
             computerWins++;
         }
 
-        else
+        else if (winner == "Player")
         {
             playerWins++;
+        }
+
+        else
+        {
+            continue;
         }
 
         roundCount++;
