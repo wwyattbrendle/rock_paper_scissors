@@ -5,10 +5,31 @@
 
 let roundCount = 1;
 let winner = "none";
+let computerSelection = "none";
+let playerSelection = "none";
+
+game();
 
 function getComputerChoice()
 {
     //todo
+    let choice = Math.floor(Math.random() * 3);
+    if (choice === 0)
+    {
+        computerSelection = "Rock";
+    }
+
+    else if (choice == 1)
+    {
+        computerSelection = "Paper";
+    }
+    
+    else
+    {
+        computerSelection = "Scissors";
+    }
+
+    console.log("Computer Choice: " + computerSelection);
 }
 
 function getPlayerChoice()
@@ -25,28 +46,80 @@ function getPlayerChoice()
 
     else
     {
-        console.log(playerChoice)
+        console.log("Player Choice: " + playerChoice);
         return playerChoice;
     }
 }
 
-function determineWinner(computerSelection, playerSelection)
+function determineWinner()
 {
-    //todo
+    if (computerSelection === playerSelection)
+    {
+        winner = "none";
+    }
 
+    else
+    {
+        if (computerSelection == "Rock")
+        {
+            if (playerSelection == "Paper")
+            {
+                winner = "Player";
+            }
+
+            else
+            {
+                winner = "Computer";
+            }
+        }
+        else if (computerSelection == "Paper")
+        {
+            if (playerSelection == "Scissors")
+            {
+                winner = "Player";
+            }
+
+            else
+            {
+                winner = "Computer";
+            }
+        }
+        else
+        {
+            if (playerSelection == "Rock")
+            {
+                winner = "Player";
+            }
+
+            else
+            {
+                winner = "Computer";
+            }
+        }
+    }
+
+    return;
 }
 
 function printWinner()
 {
-    alert("Round " + roundCount + "'s Winner is " + winner + "!");
+    if (winner == "none")
+    {
+        alert("Both Players Chose " + computerSelection + ".  It's a tie!");
+    }
+
+    else
+    {
+        alert("Round " + roundCount + "'s Winner is " + winner + "!");
+    }
 }
 
 function playRound()
 {
-    let computerSelection = getComputerChoice();
-    let playerSelection = getPlayerChoice();
-    determineWinner(computerSelection, playerSelection);
-    printWinner(winner, roundCount);
+    getComputerChoice();
+    getPlayerChoice();
+    determineWinner();
+    printWinner();
 }
 
 function game()
@@ -54,7 +127,7 @@ function game()
     let computerWins = 0;
     let playerWins = 0;
 
-    While (computerWins < 3 && playerWins < 3)
+    while (computerWins < 3 && playerWins < 3)
     {
         playRound();
 
