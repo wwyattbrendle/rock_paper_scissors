@@ -27,8 +27,6 @@ function getComputerChoice()
     {
         computerSelection = "Scissors";
     }
-
-    console.log("Computer Choice: " + computerSelection);
 }
 
 function getPlayerChoice()
@@ -45,7 +43,6 @@ function getPlayerChoice()
 
     else
     {
-        console.log("Player Choice: " + playerChoice);
         playerSelection = playerChoice;
     }
 }
@@ -109,7 +106,7 @@ function printWinner()
 
     else
     {
-        alert("Round " + roundCount + "'s Winner is " + winner + "!");
+        alert("Computer chose " + computerSelection + ".  Round " + roundCount + "'s Winner is " + winner + "!");
     }
 }
 
